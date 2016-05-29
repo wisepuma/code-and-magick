@@ -3,12 +3,10 @@
 
 
 (function() {
-  
   //задаем начало координат в блоке с сообщениями
   var OFFSET_X = 85;
   var OFFSET_Y = 55;
-  
-  
+
   /**
    * @const
    * @type {number}
@@ -392,7 +390,7 @@
       this.ctx.fillRect(OFFSET_X, OFFSET_Y, 250, 125);
       this.ctx.fillStyle = 'black';
       this.ctx.font = '16px PT Mono';
-      this.ctx.fillText('Я – Пендальф, ', OFFSET_X + 20,  OFFSET_Y + 30);
+      this.ctx.fillText('Я – Пендальф, ', OFFSET_X + 20, OFFSET_Y + 30);
       this.ctx.fillText('истребитель нечисти.', OFFSET_X + 20, OFFSET_Y + 50);
       this.ctx.fillText('Прыгнуть - пробел', OFFSET_X + 20, OFFSET_Y + 70);
       this.ctx.fillText('стрелять – shift', OFFSET_X + 20, OFFSET_Y + 90);
