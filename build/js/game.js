@@ -387,9 +387,6 @@
       var message = {
         stringValue: ['Я – Пендальф,', 'истребитель нечисти', 'Прыгнуть - пробел', 'стрелять – shift']
       };
-
-
-      
       this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
       this.ctx.fillRect(OFFSET_X + 10, OFFSET_Y + 10, 250, 125);
       this.ctx.fillStyle = '#FFFFFF';
@@ -397,7 +394,7 @@
       this.ctx.fillStyle = 'black';
       this.ctx.font = '16px PT Mono';
       
-      for (var i = 0; i < message.stringValue.length; i++){
+      for (var i = 0; i < message.stringValue.length; i++) {
         this.ctx.fillText(message.stringValue[i], OFFSET_X + 20, OFFSET_Y + 30 + 20 * i);
       }
       
