@@ -1,7 +1,14 @@
 'use strict';
 
 
+
 (function() {
+  
+  //задаем начало координат в блоке с сообщениями
+  var OFFSET_X = 85;
+  var OFFSET_Y = 55;
+  
+  
   /**
    * @const
    * @type {number}
@@ -379,8 +386,16 @@
      * Отрисовка экрана паузы.
      */
     _drawPauseScreen: function() {
+      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+      this.ctx.fillRect(OFFSET_X + 10, OFFSET_Y + 10, 250, 125);
       this.ctx.fillStyle = '#FFFFFF';
-      this.ctx.fillRect(85, 50, 200, 120);
+      this.ctx.fillRect(OFFSET_X, OFFSET_Y, 250, 125);
+      this.ctx.fillStyle = 'black';
+      this.ctx.font = '16px PT Mono';
+      this.ctx.fillText('Я – Пендальф, ', OFFSET_X + 20,  OFFSET_Y + 30);
+      this.ctx.fillText('истребитель нечисти.', OFFSET_X + 20, OFFSET_Y + 50);
+      this.ctx.fillText('Прыгнуть - пробел', OFFSET_X + 20, OFFSET_Y + 70);
+      this.ctx.fillText('стрелять – shift', OFFSET_X + 20, OFFSET_Y + 90);
       switch (this.state.currentStatus) {
         case Verdict.WIN:
           console.log('you have won!');
