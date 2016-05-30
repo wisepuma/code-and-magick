@@ -387,12 +387,7 @@
       var message = {
         stringValue: ['Я – Пендальф,', 'истребитель нечисти', 'Прыгнуть - пробел', 'стрелять – shift']
       };
-
-      
       this.createText(message.stringValue);
-      
-      
-       
       switch (this.state.currentStatus) {
         case Verdict.WIN:
           console.log('you have won!');
@@ -691,7 +686,6 @@
       window.removeEventListener('keydown', this._onKeyDown);
       window.removeEventListener('keyup', this._onKeyUp);
     },
-    
     createText: function(textArray) {
       this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
       this.ctx.fillRect(OFFSET_X + 10, OFFSET_Y + 10, 250, 125);
@@ -699,7 +693,6 @@
       this.ctx.fillRect(OFFSET_X, OFFSET_Y, 250, 125);
       this.ctx.fillStyle = 'black';
       this.ctx.font = '16px PT Mono';
-      
       for (var i = 0; i < textArray.length; i++) {
         this.ctx.fillText(textArray[i], OFFSET_X + 20, OFFSET_Y + 30 + 20 * i);
       }
