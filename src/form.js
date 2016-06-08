@@ -20,28 +20,31 @@
 var reviewFields = document.querySelector('.review-fields');
 var reviewFieldsName = document.querySelector('#review-fields-name');
 var reviewFieldsText = document.querySelector('#review-fields-text');
+var reviewName = document.querySelector('#review-name');
+var reviewText = document.querySelector('#review-text');
+var reviewAddition = document.querySelector('#review-submit');
+var reviewDescription = document.querySelector('#review-text');
+var estimateElements = {"mark1": document.querySelector('#review-mark-1'),
+					                    "mark2": document.querySelector('#review-mark-2'),
+					   					"mark3": document.querySelector('#review-mark-3'),
+					                    "mark4": document.querySelector('#review-mark-4'),
+					                    "mark5": document.querySelector('#review-mark-5')};
 
-var setRateConstraint = function() {
-  var reviewAddition = document.querySelector('#review-submit');
-  var reviewDescription = document.querySelector('#review-text');
+function setRateConstraint() {
   reviewDescription.setAttribute('required', true);
   if(reviewName.value === '' || reviewText.value === '') {
     reviewAddition.disabled = true;
   }
 };
 
-var doNotSetRateConstraint = function() {
-  var reviewAddition = document.querySelector('#review-submit');
-  var reviewDescription = document.querySelector('#review-text');
+function doNotSetRateConstraint() {
   reviewDescription.removeAttribute('required', 'required');
   if (reviewName.value !== '' ) {
     reviewAddition.disabled = false;
   }
 };
 
-var reviewName = document.querySelector('#review-name');
-var reviewText = document.querySelector('#review-text');
-var reviewAddition = document.querySelector('#review-submit');
+
 
 
 function setReviewFieldsVisibility() {
@@ -52,7 +55,9 @@ function setReviewFieldsVisibility() {
   }
 }
 
-reviewName.oninput = function() {
+//заменила  oninput на addEventlistener('input', function...) 
+
+reviewName.addEventListener('input', function() {
   if (reviewName.value === '' ) {
     reviewFieldsName.classList.remove('invisible');
     reviewAddition.disabled = true;
@@ -61,9 +66,12 @@ reviewName.oninput = function() {
     reviewAddition.disabled = false;
   }
   setReviewFieldsVisibility();
-};
+});
 
-	reviewText.oninput = function() {
+
+
+
+reviewText.addEventListener('input', function() {
   if (reviewText.value === '') {
     reviewFieldsText.classList.remove('invisible');
   } else {
@@ -73,33 +81,32 @@ reviewName.oninput = function() {
     reviewAddition.disabled = false;
   }
   setReviewFieldsVisibility();
-};
+});
 
 
 
-	var estimate1 = document.querySelector('#review-mark-1');
-estimate1.addEventListener('click', function() {
+	
+estimateElements.mark1.addEventListener('click', function() {
   setRateConstraint();
 });
 
 
-	var estimate2 = document.querySelector('#review-mark-2');
-estimate2.addEventListener('click', function() {
+	
+estimateElements.mark2.addEventListener('click', function() {
   setRateConstraint();
 });
 
 
-	var estimate3 = document.querySelector('#review-mark-3');
-estimate3.addEventListener('click', function() {
+estimateElements.mark3.addEventListener('click', function() {
   doNotSetRateConstraint();
 });
 
-	var estimate4 = document.querySelector('#review-mark-4');
-estimate4.addEventListener('click', function() {
+	
+estimateElements.mark4.addEventListener('click', function() {
   doNotSetRateConstraint();
 });
 
-	var estimate5 = document.querySelector('#review-mark-5');
-estimate5.addEventListener('click', function() {
+
+estimateElements.mark5.addEventListener('click', function() {
   doNotSetRateConstraint();
 });
