@@ -24,28 +24,25 @@ var reviewName = document.querySelector('#review-name');
 var reviewText = document.querySelector('#review-text');
 var reviewAddition = document.querySelector('#review-submit');
 var reviewDescription = document.querySelector('#review-text');
-var estimateElements = {"mark1": document.querySelector('#review-mark-1'),
-					                    "mark2": document.querySelector('#review-mark-2'),
-					   					"mark3": document.querySelector('#review-mark-3'),
-					                    "mark4": document.querySelector('#review-mark-4'),
-					                    "mark5": document.querySelector('#review-mark-5')};
+var estimateElements = {'mark1': document.querySelector('#review-mark-1'),
+                                        'mark2': document.querySelector('#review-mark-2'),
+                                        'mark3': document.querySelector('#review-mark-3'),
+                                        'mark4': document.querySelector('#review-mark-4'),
+                                        'mark5': document.querySelector('#review-mark-5')};
 
 function setRateConstraint() {
   reviewDescription.setAttribute('required', true);
   if(reviewName.value === '' || reviewText.value === '') {
     reviewAddition.disabled = true;
   }
-};
+}
 
 function doNotSetRateConstraint() {
   reviewDescription.removeAttribute('required', 'required');
   if (reviewName.value !== '' ) {
     reviewAddition.disabled = false;
   }
-};
-
-
-
+}
 
 function setReviewFieldsVisibility() {
   if (reviewFieldsName.classList.contains('invisible') && reviewFieldsText.classList.contains('invisible')) {
@@ -54,8 +51,6 @@ function setReviewFieldsVisibility() {
     reviewFields.classList.remove('invisible');
   }
 }
-
-//заменила  oninput на addEventlistener('input', function...) 
 
 reviewName.addEventListener('input', function() {
   if (reviewName.value === '' ) {
@@ -67,8 +62,6 @@ reviewName.addEventListener('input', function() {
   }
   setReviewFieldsVisibility();
 });
-
-
 
 
 reviewText.addEventListener('input', function() {
@@ -84,28 +77,21 @@ reviewText.addEventListener('input', function() {
 });
 
 
-
-	
 estimateElements.mark1.addEventListener('click', function() {
   setRateConstraint();
 });
 
-
-	
 estimateElements.mark2.addEventListener('click', function() {
   setRateConstraint();
 });
-
 
 estimateElements.mark3.addEventListener('click', function() {
   doNotSetRateConstraint();
 });
 
-	
 estimateElements.mark4.addEventListener('click', function() {
   doNotSetRateConstraint();
 });
-
 
 estimateElements.mark5.addEventListener('click', function() {
   doNotSetRateConstraint();
