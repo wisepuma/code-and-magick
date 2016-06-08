@@ -75,20 +75,20 @@
 
     <fieldset class="review-form-group">
       <label for="review-name" class="review-form-label">Имя</label><br>
-      <input type="text" name="review-name" id="review-name" class="review-form-field review-form-field-name">
+      <input type="text" name="review-name" id="review-name" class="review-form-field review-form-field-name" required>
     </fieldset>
 
     <fieldset class="review-form-group">
-      <label for="review-text" class="review-form-label">Отзыв</label><br>
+      <label for="review-text" class="review-form-label review-form-label-required">Отзыв</label><br>
       <textarea name="review-text" id="review-text" class="review-form-field review-form-field-text" cols="32" rows="8"></textarea>
     </fieldset>
 
     <div class="review-form-controls">
-      <button class="review-form-control review-submit" type="submit">Добавить отзыв</button>
+      <button class="review-form-control review-submit" type="submit" id="review-submit" disabled="disabled">Добавить отзыв</button>
       <div class="review-form-control review-fields">
         Осталось заполнить:<br>
-        <label for="review-name" class="review-fields-label review-fields-name">имя</label>
-        <label for="review-text" class="review-fields-label review-fields-text">отзыв</label>
+        <label for="review-name" class="review-fields-label review-fields-name" id="review-fields-name">имя</label>
+        <label for="review-text" class="review-fields-label review-fields-text" id="review-fields-text">отзыв</label>
       </div>
     </div>
   </form>
@@ -120,5 +120,6 @@
 </template>
 
 <script src="js/main.js"></script>
+<!--<script src="/src/form.js"></script>-->
 </body>
 </html>

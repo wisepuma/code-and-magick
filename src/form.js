@@ -17,7 +17,7 @@
 })();
 
 
-//var reviewFields = document.querySelector('.review-fields');
+var reviewFields = document.querySelector('.review-fields');
 var reviewFieldsName = document.querySelector('#review-fields-name');
 var reviewFieldsText = document.querySelector('#review-fields-text');
 
@@ -25,42 +25,56 @@ var setRateConstraint = function() {
   var reviewAddition = document.querySelector('#review-submit');
   var reviewDescription = document.querySelector('#review-text');
   reviewDescription.setAttribute('required', true);
-  reviewAddition.disabled = true;
+  if(reviewName.value === '' || reviewText.value === '') {
+    reviewAddition.disabled = true;
+  }
 };
 
 var doNotSetRateConstraint = function() {
   var reviewAddition = document.querySelector('#review-submit');
   var reviewDescription = document.querySelector('#review-text');
   reviewDescription.removeAttribute('required', 'required');
-  reviewAddition.disabled = false;
+  if (reviewName.value !== '' ) {
+    reviewAddition.disabled = false;
+  }
 };
-
-
 
 var reviewName = document.querySelector('#review-name');
 var reviewText = document.querySelector('#review-text');
-var validateForm = function() {
+var reviewAddition = document.querySelector('#review-submit');
+
+
+function setReviewFieldsVisibility() {
+  if (reviewFieldsName.classList.contains('invisible') && reviewFieldsText.classList.contains('invisible')) {
+    reviewFields.classList.add('invisible');
+  } else {
+    reviewFields.classList.remove('invisible');
+  }
+}
+
+reviewName.oninput = function() {
   if (reviewName.value === '' ) {
     reviewFieldsName.classList.remove('invisible');
+    reviewAddition.disabled = true;
   } else {
     reviewFieldsName.classList.add('invisible');
+    reviewAddition.disabled = false;
   }
-  if (reviewText.value === '' ) {
+  setReviewFieldsVisibility();
+};
+
+	reviewText.oninput = function() {
+  if (reviewText.value === '') {
     reviewFieldsText.classList.remove('invisible');
   } else {
     reviewFieldsText.classList.add('invisible');
   }
+  if(reviewName.value !== '') {
+    reviewAddition.disabled = false;
+  }
+  setReviewFieldsVisibility();
 };
 
-
-
-reviewName.addEventListener('change', function() {
-  validateForm();
-		});
-
-reviewText.addEventListener('change', function() {
-  validateForm();
-		});
 
 
 	var estimate1 = document.querySelector('#review-mark-1');
