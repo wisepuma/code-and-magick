@@ -1,8 +1,5 @@
 # Личный проект «Код и Магия» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
-* Студент: [Евгения Миронова](https://up.htmlacademy.ru/javascript/5/user/16298).
-* Наставник: [Андрей Градусов](https://htmlacademy.ru/profile/id182375)
-
 --- 
 
 _Не удаляйте и не обращайте внимание на файлы:_<br>
